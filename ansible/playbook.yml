@@ -1,0 +1,33 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: create the kube-user user account
+      user:
+        name: kube-user
+        append: yes
+        state: present
+        createhome: yes
+        shell: /bin/bash
+
+    - name: allow kube-user to use sudo without needing a password
+      lineinfile:
+        dest: /etc/sudoers
+        line: "kube-user ALL=(ALL) NOPASSWD: ALL"
+        validate: "visudo -cf %s"
+
+    - name: set up authorized keys for the kube kube-user
+      authorized_key:
+        user: kube-user
+        key: "{{ item }}"
+      with_file:
+        - ../terraform_pub_key.pub
+
+- hosts: Master_Node
+  remote_user: kube-user
+  roles:
+    - { role: kubernetes_master }
+
+- hosts: Worker_Node
+  remote_user: kube-user
+  roles:
+    - { role: kubernetes_worker }

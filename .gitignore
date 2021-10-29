@@ -1,0 +1,9 @@
+*.pem
+*.pub
+*.terraform
+*.tfstate
+*.backup
+notes.md
+create_ansible_user.sh
+*.hcl
+inventory

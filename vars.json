@@ -1,0 +1,7 @@
+{
+    "AWS_REGION": "ap-south-1",
+    "INSTANCE_TYPE": "t2.micro",
+    "EC2_AMI": "ami-041d6256ed0f2061c",
+    "PROFILE": "tuto",
+    "WORKER_NODES": 2
+}

@@ -139,6 +139,6 @@ kubectl delete -f dashboard-read-only.yaml
 - To give proper permissions to the script run `chmod +x ~/dashboard/dashboard.sh`
 - To create symbolic link to use the script anywhere run `sudo ln -s ~/dashboard/dashboard.sh /usr/local/bin/dashboard`
 - The various functions are - 
-Start the dashboard and show the tokens `dashboard start`
-Check whether the dashboard is running or not and output the tokens if currently set. `dashboard status`
-Stop the dashboard `dashboard stop`
+    * Start the dashboard and show the tokens `dashboard start`
+    * Check whether the dashboard is running or not and output the tokens if currently set. `dashboard status`
+    * Stop the dashboard `dashboard stop`
